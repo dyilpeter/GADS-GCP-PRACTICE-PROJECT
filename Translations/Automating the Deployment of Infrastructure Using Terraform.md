@@ -4,7 +4,7 @@
 In this lab, you create a Terraform configuration with a module to automate the deployment of Google Cloud infrastructure.
 
 
-##Objectives
+###Objectives
 Create a configuration for an auto mode network
 
 Create a configuration for a firewall rule
@@ -15,7 +15,7 @@ Create and deploy a configuration
 
 Verify the deployment of a configuration
 
-##Task 1:
+###Task 1:
 In the Cloud Console, click Activate Cloud Shell
 
 To confirm that Terraform is installed, run the following command:
