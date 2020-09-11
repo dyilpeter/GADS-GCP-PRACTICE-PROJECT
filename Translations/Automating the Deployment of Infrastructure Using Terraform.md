@@ -1,10 +1,10 @@
-#Automating the Deployment of Infrastructure Using Terraform
+# Automating the Deployment of Infrastructure Using Terraform
 
-##Overview
+## Overview
 In this lab, you create a Terraform configuration with a module to automate the deployment of Google Cloud infrastructure.
 
 
-###Objectives
+### Objectives
 Create a configuration for an auto mode network
 
 Create a configuration for a firewall rule
@@ -15,7 +15,8 @@ Create and deploy a configuration
 
 Verify the deployment of a configuration
 
-###Task 1:
+
+### Task 1:
 In the Cloud Console, click Activate Cloud Shell
 
 To confirm that Terraform is installed, run the following command:
@@ -42,7 +43,7 @@ Smaple Result: * provider.google: version = "~> 3.38"
 Terraform has been successfully initialized!
 
 
-##Task 2: Create mynetwork and its resources
+### Task 2: Create mynetwork and its resources
 
 In Cloud Shell, click #Open Editor
 
@@ -53,7 +54,7 @@ To create a new file, click File > New File.
 Name the new file mynetwork.tf, and then open it.
 
 Copy the following base code into mynetwork.tf:
-# Create the mynetwork network
+#Create the mynetwork network
 resource [RESOURCE_TYPE] "mynetwork" {
 name = [RESOURCE_NAME]
 #RESOURCE properties go here
@@ -67,7 +68,7 @@ Add the following property to mynetwork.tf:
 auto_create_subnetworks = "true"
 
 Verify that mynetwork.tf looks like this:
-# Create the mynetwork network
+#Create the mynetwork network
 resource "google_compute_network" "mynetwork" {
 name                    = "mynetwork"
 auto_create_subnetworks = true
@@ -79,7 +80,7 @@ click File > Save.
 Define a firewall rule to allow HTTP, SSH, RDP, and ICMP traffic on mynetwork.
 
 Add the following base code to mynetwork.tf:
-# Add a firewall rule to allow HTTP, SSH, RDP and ICMP traffic on mynetwork
+#Add a firewall rule to allow HTTP, SSH, RDP and ICMP traffic on mynetwork
 resource [RESOURCE_TYPE] "mynetwork-allow-http-ssh-rdp-icmp" {
 name = [RESOURCE_NAME]
 #RESOURCE properties go here
@@ -104,7 +105,7 @@ allow {
 The list of allow rules specifies which protocols and ports are permitted.
 
 Verify that your additions to mynetwork.tf look like this:
-# Add a firewall rule to allow HTTP, SSH, RDP, and ICMP traffic on mynetwork
+#Add a firewall rule to allow HTTP, SSH, RDP, and ICMP traffic on mynetwork
 resource "google_compute_firewall" "mynetwork-allow-http-ssh-rdp-icmp" {
 name = "mynetwork-allow-http-ssh-rdp-icmp"
 network = google_compute_network.mynetwork.self_link
@@ -184,7 +185,7 @@ By giving instance_type a default value, you make the variable optional. The ins
 To save main.tf, click File > Save.
 
 Add the following VM instances to mynetwork.tf:
-# Create the mynet-us-vm instance
+#Create the mynet-us-vm instance
 module "mynet-us-vm" {
   source           = "./instance"
   instance_name    = "mynet-us-vm"
@@ -192,7 +193,7 @@ module "mynet-us-vm" {
   instance_network = google_compute_network.mynetwork.self_link
 }
 
-# Create the mynet-eu-vm" instance
+#Create the mynet-eu-vm" instance
 module "mynet-eu-vm" {
   source           = "./instance"
   instance_name    = "mynet-eu-vm"
