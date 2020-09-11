@@ -20,7 +20,8 @@ In the Cloud Console, click Activate Cloud Shell
 
 To confirm that Terraform is installed, run the following command:
   terraform --version
-Sample Result: Terraform v0.12.24
+ Sample Result:
+  Terraform v0.12.24
 
 To create a directory for your Terraform configuration, run the following command:
   mkdir tfinfra
