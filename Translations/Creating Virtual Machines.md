@@ -43,7 +43,7 @@ gcloud beta compute ssh --zone "us-west1-b" "instance-3" --project "qwiklabs-gcp
 
 ### To see information about unused and used memory and swap space on your custom VM, run the following command: 
 
-free
+    free
 
 ### To see details about the RAM installed on your VM, run the following command: 
 
